@@ -18,11 +18,6 @@ const imgList = galleryItems
 gallery.insertAdjacentHTML("beforeend", imgList);
     
 
-gallery.addEventListener('click', onGalleryImgClick);
-
-function onGalleryImgClick(event) {
-    event.preventDefault();
-   
     let lightbox = new SimpleLightbox('.gallery a', { 
     
         captions: true,
@@ -30,5 +25,5 @@ function onGalleryImgClick(event) {
         captionDelay: 250,
         
      });
-}
+
 
