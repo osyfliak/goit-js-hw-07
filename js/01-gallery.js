@@ -29,6 +29,7 @@ gallery.insertAdjacentHTML("beforeend", imgList);
 gallery.addEventListener('click', onGalleryImgClick);
 
 function onGalleryImgClick(event) {
+    
     event.preventDefault();
     if (!event.target.classList.contains('gallery__image')) {
         return;
@@ -39,16 +40,16 @@ function onGalleryImgClick(event) {
     <img src="${event.target.dataset.source}" width="800" height="600">
 `)
         instance.show()
-    
-    
-        window.addEventListener("keydown", onPressKeyEsc);
-        
+
+     if (instance.visible()) {
+    window.addEventListener("keydown", onPressKeyESC);
+  }
+      
         function onPressKeyEsc(event) {
             if (event.code === "Escape") {
                 window.removeEventListener("keydown", onPressKeyEsc);
                 instance.close();
             }       
-       
         }
     }
 }
