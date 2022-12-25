@@ -35,11 +35,20 @@ function onGalleryImgClick(event) {
 
     } else {
 
-const instance = basicLightbox.create(`
+        const instance = basicLightbox.create(`
     <img src="${event.target.dataset.source}" width="800" height="600">
 `)
-
-instance.show()
+        instance.show()
     
-    } 
+    
+        window.addEventListener("keydown", onPressKeyEsc);
+        
+        function onPressKeyEsc(event) {
+            if (event.code === "Escape") {
+                window.removeEventListener("keydown", onPressKeyEsc);
+                instance.close();
+            }       
+       
+        }
+    }
 }
